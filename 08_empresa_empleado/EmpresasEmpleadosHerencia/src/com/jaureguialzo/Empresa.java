@@ -15,12 +15,25 @@ public class Empresa {
 
     public void añadirEmpleado(Empleado e) {
         empleados.add(e);
+        e.setEmpresa(this);
     }
 
     public void listarEmpleados() {
         for (Empleado e : empleados) {
             System.out.println(e);
+
+            if (e.getClass().getCanonicalName().equals("com.jaureguialzo.Directivo")) {
+                Directivo d = (Directivo) e;
+                System.out.println("Es un directivo y su bonus es: "+d.getBonusPersonal());
+            } else {
+                Operario o = (Operario)e;
+                System.out.println("Es un operario y las horas semanales son: "+o.getHorasContrato());
+            }
         }
+    }
+
+    public void despedirATodoElMundo() {
+        empleados.clear();
     }
 
     public Empresa(String nombre, String anyoFundacion) {

@@ -56,6 +56,7 @@ public class Main {
                             int seleccion = seleccionarEmpresa();
 
                             if (seleccion >= 0) {
+                                empresas.get(seleccion).despedirATodoElMundo();
                                 empresas.remove(seleccion);
                                 System.out.println("INFO: Empresa borrada");
                             } else {
